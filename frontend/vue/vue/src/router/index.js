@@ -24,11 +24,6 @@ const routes = [
     component: Layout,
     children:[
       {
-        path: '/Admin',
-        name: 'Admin',
-        component: () => import( '../views/Admin.vue')
-      },
-      {
         path: '/data',
         name: 'data',
         component: () => import( '../views/data.vue')

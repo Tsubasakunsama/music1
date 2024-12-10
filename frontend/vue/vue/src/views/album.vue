@@ -18,8 +18,8 @@
         <el-table-column label="Actions">
           <template slot-scope="scope">
             <el-button type="primary" @click="edit(scope.row)">Edit</el-button>
-            <el-popconfirm title="Are you sure you want to delete?" @confirm="del(scope.row.aname)">
-              <el-button slot="reference" size="small" type="danger" style="margin-left: 10px">Delete</el-button>
+            <el-popconfirm title="Are you sure you want to delete?">
+              <el-button slot="reference" size="small" type="danger" style="margin-left: 10px" @click="del(scope.row.aname)">Delete</el-button>
             </el-popconfirm>
           </template>
         </el-table-column>
