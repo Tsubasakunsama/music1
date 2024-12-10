@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wangxiaohan.dao.BandDao">
+
+    <!-- 根据搜索参数查询 -->
+    <select id="findBySearch" resultType="com.wangxiaohan.entity.Band">
+        select * from band
+        <where>
+            <if test="params !=null and params.bname!=null and params.bname!=''">
+                and bname like concat('%',#{params.bname},'%')
+            </if>
+            <if test="params !=null and params.bleader!=null and params.bleader!=''">
+                and bleader like concat('%',#{params.bleader},'%')
+            </if>
+            <if test="params !=null and params.year!=null and params.year!=''">
+                and year like concat('%',#{params.year},'%')
+            </if>
+        </where>
+    </select>
+
+</mapper>
+
