@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wangxiaohan.dao.MemberDao">
+
+    <select id="findBySearch" resultType="com.wangxiaohan.entity.Member">
+        select * from member
+        <where>
+            <if test="params != null and params.mname != null and params.mname != ''">
+                and mname like concat('%', #{params.mname}, '%')
+            </if>
+
+            <if test="params != null and params.msex != null and params.msex != ''">
+                and msex like concat('%', #{params.msex}, '%')
+            </if>
+
+            <if test="params != null and params.mage != null">
+                and mage = #{params.mage}
+            </if>
+
+            <if test="params != null and params.mwork != null and params.mwork != ''">
+                and mwork like concat('%', #{params.mwork}, '%')
+            </if>
+
+            <if test="params != null and params.birthdate != null and params.birthdate != ''">
+                and birthdate like concat('%', #{params.birthdate}, '%')
+            </if>
+
+            <if test="params != null and params.bname != null and params.bname != ''">
+                and bname like concat('%', #{params.bname}, '%')
+            </if>
+        </where>
+    </select>
+
+</mapper>
